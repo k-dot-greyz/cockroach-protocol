@@ -95,6 +95,7 @@ A bespoke config for personal sovereignty: capability scaffolding, domain ascent
 - The Glitch Mob — _We Can Make The World Stop_  
 - The Funk Hunters — _Empire_  
 - Boards of Canada — _Dayvan Cowboy_  
+- Maddy O'Neal, Cleva Thoughts, Artifakts — _Woofer (Artifakts Remix)_  
 
 ---
 
