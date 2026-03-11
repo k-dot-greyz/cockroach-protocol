@@ -1,0 +1,27 @@
+name: Task
+description: Atomic task belonging to an Epic
+labels: ["task"]
+body:
+  - type: input
+    id: parent_epic
+    attributes:
+      label: Parent Epic (issue #)
+      placeholder: "#12"
+    validations:
+      required: true
+  - type: input
+    id: outcome
+    attributes:
+      label: Expected Outcome
+  - type: textarea
+    id: dod
+    attributes:
+      label: Definition of Done
+  - type: input
+    id: files
+    attributes:
+      label: Touched Files / Paths
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risk Notes
