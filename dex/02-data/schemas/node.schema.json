@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Node",
+  "description": "A discrete capability or asset in the Cockroach Protocol progression system.",
+  "type": "object",
+  "required": ["nodeID", "domain", "name", "state"],
+  "properties": {
+    "nodeID": {
+      "type": "string",
+      "description": "Unique identifier for the node.",
+      "pattern": "^[A-Z0-9_-]+$",
+      "examples": ["RUNWAY_EMERGENCY_FUND_1M", "BUREAU_PASSPORT"]
+    },
+    "domain": {
+      "type": "string",
+      "description": "Domain this node belongs to.",
+      "enum": ["runway", "bureaucracy", "gear", "income", "digital", "network", "skills", "recovery"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the node.",
+      "examples": ["1-month emergency fund", "Passport (valid 6+ months)"]
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of what this node represents."
+    },
+    "state": {
+      "type": "string",
+      "description": "Current state of the node.",
+      "enum": ["dormant", "active", "secured", "hardened", "held"]
+    },
+    "prerequisites": {
+      "type": "array",
+      "description": "Node IDs that must be 'secured' before this node can be activated.",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "securedCriteria": {
+      "type": "object",
+      "description": "Criteria to transition from 'active' to 'secured'.",
+      "properties": {
+        "description": {"type": "string"},
+        "verification": {
+          "type": "string",
+          "enum": ["manual", "photo", "qr", "nfc", "calculation"],
+          "description": "How this node is verified as secured."
+        },
+        "requiredValue": {
+          "type": ["number", "string", "null"],
+          "description": "Numeric threshold or condition (e.g., $3000 for emergency fund)."
+        }
+      }
+    },
+    "hardenedCriteria": {
+      "type": "object",
+      "description": "Criteria to transition from 'secured' to 'hardened'.",
+      "properties": {
+        "description": {"type": "string"},
+        "verification": {
+          "type": "string",
+          "enum": ["manual", "photo", "qr", "nfc", "calculation"]
+        },
+        "requiredValue": {
+          "type": ["number", "string", "null"]
+        }
+      }
+    },
+    "heldCriteria": {
+      "type": "object",
+      "description": "Optional criteria to transition from 'hardened' to 'held' (maintained over time).",
+      "properties": {
+        "description": {"type": "string"},
+        "duration": {
+          "type": "number",
+          "description": "Number of days to maintain 'hardened' state."
+        }
+      }
+    },
+    "points": {
+      "type": "object",
+      "description": "Points awarded for each state (for Domain Ascent scoring).",
+      "properties": {
+        "dormant": {"type": "number", "default": 0},
+        "active": {"type": "number", "default": 1},
+        "secured": {"type": "number", "default": 10},
+        "hardened": {"type": "number", "default": 30},
+        "held": {"type": "number", "default": 50}
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags for filtering/categorizing nodes.",
+      "items": {"type": "string"},
+      "examples": [["finance", "emergency"], ["identity", "travel"]]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
