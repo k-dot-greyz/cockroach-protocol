@@ -1,0 +1,54 @@
+{
+  "_meta": {
+    "dex_id": "7E-PROC-01",
+    "description": "Full label taxonomy for cockroach-protocol repos. Apply via bootstrap.sh or gh label create loop.",
+    "gh_cli": "cat labels.json | jq -c '._labels[]' | while read l; do gh label create $(echo $l | jq -r '.name') --color $(echo $l | jq -r '.color') --description $(echo $l | jq -r '.description') --repo {owner}/{repo} --force; done"
+  },
+  "_labels": [
+    {
+      "name": "epic",
+      "color": "0052cc",
+      "description": "High-level epic grouping tasks"
+    },
+    {
+      "name": "task",
+      "color": "e4e669",
+      "description": "Atomic task belonging to an epic"
+    },
+    {
+      "name": "blocked",
+      "color": "d93f0b",
+      "description": "Blocked by a dependency"
+    },
+    {
+      "name": "domain:runway",
+      "color": "c2e0c6",
+      "description": "Runway domain work"
+    },
+    {
+      "name": "domain:bureaucracy",
+      "color": "c2e0c6",
+      "description": "Bureaucracy domain work"
+    },
+    {
+      "name": "physical-layer",
+      "color": "bfd4f2",
+      "description": "QR/NFC/field ops"
+    },
+    {
+      "name": "data-layer",
+      "color": "bfd4f2",
+      "description": "Schemas and seeds"
+    },
+    {
+      "name": "devops",
+      "color": "f9d0c4",
+      "description": "CI/CD, infra, pipelines"
+    },
+    {
+      "name": "content",
+      "color": "f9d0c4",
+      "description": "Copy, badges, objectives"
+    }
+  ]
+}
