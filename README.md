@@ -26,7 +26,7 @@ A bespoke config for personal sovereignty: capability scaffolding, domain ascent
 ### Core Screens
 
 - **HQ** — operator base, system overview  
-- **Threat Console** — risk detection, hazard tracking  
+- **Console** — risk detection, hazard tracking  
 - **Runway** — financial resilience scaffolding  
 - **Objectives** — active missions and unlocks  
 - **Gear** — capability inventory  
@@ -44,7 +44,7 @@ A bespoke config for personal sovereignty: capability scaffolding, domain ascent
 2. **Active** — in progress  
 3. **Secured** — baseline capability achieved  
 4. **Hardened** — resilience layer added  
-5. **Held** _(optional)_ — maintained at hardened state  
+5. **Locked** _(optional)_ — maintained at hardened state  
 
 ### Progression Logic
 
@@ -72,7 +72,7 @@ A bespoke config for personal sovereignty: capability scaffolding, domain ascent
 
 ### Dead Drops
 
-- **QR stickers** — city-placed objectives and node unlocks  
+- **QR stickers** — city-placed objectives and node unlocks (standard + UV/glow variants)  
 - **NFC tags** — gear and bureaucracy nodes with proof-of-capability triggers  
 - **Difficulty tiers** — easy (coffee shops), medium (public transit), hard (embassies, consulates)  
 
