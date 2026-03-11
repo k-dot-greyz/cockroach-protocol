@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DeadDrop",
+  "description": "A physical QR or NFC dead drop for objective unlocks or capability verification.",
+  "type": "object",
+  "required": ["dropID", "type", "domain", "difficulty", "active"],
+  "properties": {
+    "dropID": {
+      "type": "string",
+      "description": "Unique identifier for the drop.",
+      "pattern": "^[A-Z0-9_-]+$",
+      "examples": ["RIGA-BUREAU-001", "RIGA-GEAR-BACKUP-PHONE"]
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of physical trigger.",
+      "enum": ["qr", "nfc"]
+    },
+    "domain": {
+      "type": "string",
+      "description": "Domain this drop belongs to.",
+      "enum": ["runway", "bureaucracy", "gear", "income", "digital", "network", "skills", "recovery"]
+    },
+    "nodeID": {
+      "type": "string",
+      "description": "Node ID this drop unlocks or verifies (optional for QR location drops)."
+    },
+    "objectiveID": {
+      "type": "string",
+      "description": "Objective ID this drop completes (optional)."
+    },
+    "difficulty": {
+      "type": "string",
+      "description": "Difficulty tier for this drop.",
+      "enum": ["easy", "medium", "hard"]
+    },
+    "points": {
+      "type": "number",
+      "description": "Points awarded for scanning/tapping this drop.",
+      "examples": [5, 10, 20]
+    },
+    "location": {
+      "type": "object",
+      "description": "GPS coordinates for QR drops.",
+      "properties": {
+        "lat": {"type": "number"},
+        "lng": {"type": "number"},
+        "tolerance": {
+          "type": "number",
+          "description": "Acceptable GPS drift in meters.",
+          "default": 100
+        }
+      }
+    },
+    "address": {
+      "type": "string",
+      "description": "Human-readable address or location name.",
+      "examples": ["US Embassy, Riga", "Latvian State Social Insurance Agency"]
+    },
+    "instructions": {
+      "type": "string",
+      "description": "How to find or access this drop.",
+      "examples": ["Inside lobby, near information desk", "Attached to backup phone case"]
+    },
+    "verifyToken": {
+      "type": "string",
+      "description": "HMAC hash for anti-spoofing (first 8 chars).",
+      "pattern": "^[a-f0-9]{8}$"
+    },
+    "nfcUID": {
+      "type": "string",
+      "description": "NFC tag's unique serial number (for NFC drops only)."
+    },
+    "registeredUser": {
+      "type": "string",
+      "description": "User ID who registered this NFC tag (null if unregistered).",
+      "default": null
+    },
+    "active": {
+      "type": "boolean",
+      "description": "Whether this drop is currently active (can be deactivated if removed).",
+      "default": true
+    },
+    "scans": {
+      "type": "number",
+      "description": "Total number of scans/taps recorded.",
+      "default": 0
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
