@@ -1,0 +1,23 @@
+name: Sync tasks.md to Issues
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "tasks.md"
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install PyGithub
+      - name: Sync tasks.md to GitHub Issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: python .github/scripts/tasks_sync.py

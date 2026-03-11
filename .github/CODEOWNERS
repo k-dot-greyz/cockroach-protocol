@@ -1,0 +1,6 @@
+# Default reviewer for all files
+* @k-dot-greyz
+
+# DEX layer ownership
+dex/ @k-dot-greyz
+.github/ @k-dot-greyz
