@@ -24,14 +24,14 @@ A **node** is a discrete capability or asset.
 2. **Active** — User is working on this node.  
 3. **Secured** — Baseline capability achieved.  
 4. **Hardened** — Resilience layer added.  
-5. **Held** _(optional)_ — User is maintaining a hardened node over time.  
+5. **Locked** _(optional)_ — User is maintaining a hardened node over time.  
 
 ---
 
 ## Progression Flow
 
 ```
-Dormant → Active → Secured → Hardened → Held
+Dormant → Active → Secured → Hardened → Locked
 ```
 
 **Example: Emergency Fund Node**
@@ -40,7 +40,7 @@ Dormant → Active → Secured → Hardened → Held
 - **Active:** User adds "Build 1-month emergency fund" as objective.  
 - **Secured:** User saves $3,000 (1 month of burn).  
 - **Hardened:** User saves $9,000 (3 months of burn).  
-- **Held:** User maintains $9,000+ over 6 months.  
+- **Locked:** User maintains $9,000+ over 6 months.  
 
 ---
 
@@ -129,7 +129,7 @@ Inspired by Snakes & Ladders, but translated into elegant terminology:
 **Effect:**  
 - Node moves from Hardened → Secured or Secured → Active  
 - Domain Ascent position drops  
-- Threat Console alert triggered  
+- Console alert triggered  
 
 ---
 
@@ -145,7 +145,7 @@ Inspired by Snakes & Ladders, but translated into elegant terminology:
   - Blue: Active  
   - Green: Secured  
   - Teal: Hardened  
-  - Gold: Held  
+  - Gold: Locked  
 
 ---
 
@@ -164,7 +164,7 @@ Inspired by Snakes & Ladders, but translated into elegant terminology:
    - Users can operate with all nodes Secured and never harden  
    - But Domain Ascent rewards hardening significantly  
 
-4. **Held state is rare and ceremonial.**  
+4. **Locked state is rare and ceremonial.**  
    - Only appears after maintaining Hardened for extended period (3–6 months)  
    - Indicates deep resilience and discipline  
 
@@ -177,7 +177,7 @@ Inspired by Snakes & Ladders, but translated into elegant terminology:
 - Active: 1 pt  
 - Secured: 10 pts  
 - Hardened: 30 pts  
-- Held: 50 pts  
+- Locked: 50 pts  
 
 **Bonuses:**  
 - Ladder event: +20 pts  
