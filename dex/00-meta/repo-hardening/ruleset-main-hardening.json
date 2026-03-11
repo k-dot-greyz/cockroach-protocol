@@ -1,0 +1,44 @@
+{
+  "_meta": {
+    "dex_id": "7E-PROC-01",
+    "description": "Ruleset config for main branch hardening. Apply via GitHub API or Settings > Rules.",
+    "api_endpoint": "POST /repos/{owner}/{repo}/rulesets",
+    "gh_cli": "gh api repos/{owner}/{repo}/rulesets --method POST --input ruleset-main-hardening.json"
+  },
+  "name": "main-hardening",
+  "target": "branch",
+  "enforcement": "active",
+  "conditions": {
+    "ref_name": {
+      "include": ["~DEFAULT_BRANCH"],
+      "exclude": []
+    }
+  },
+  "rules": [
+    { "type": "creation" },
+    { "type": "update" },
+    { "type": "deletion" },
+    { "type": "non_fast_forward" },
+    { "type": "required_linear_history" },
+    { "type": "required_signatures" },
+    {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 1,
+        "dismiss_stale_reviews_on_push": true,
+        "require_code_owner_review": true,
+        "require_last_push_approval": false,
+        "required_review_thread_resolution": true
+      }
+    },
+    {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": false,
+        "required_status_checks": [
+          { "context": "validate", "integration_id": null }
+        ]
+      }
+    }
+  ]
+}
